@@ -13,8 +13,8 @@ class WeatherByCityViewModel: ObservableObject {
     @Published var description: String = "-"
     @Published var temp: String = "-"
     @Published var timezone: String = "-"
-    @Published var lat: Float = 51.5085
-    @Published var lon: Float = -0.1257
+    @Published var lat: Float = -6.2146
+    @Published var lon: Float = 106.8451
     
     init() {
         fetchWeather()
