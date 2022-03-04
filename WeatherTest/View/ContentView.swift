@@ -8,41 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = WeatherViewModel()
-    @StateObject var cityModel = CityViewModel()
 //    @StateObject var locationViewModel = LocationViewModel()
-    @State private var city: String = ""
+//    @State private var city: String = ""
     
     var body: some View {
         NavigationView{
             VStack{
-                Text(viewModel.timezone)
-                Text(viewModel.temp)
-                Text(viewModel.title)
-                Text(viewModel.description)
-                TextField("Kota", text: $city)
-                    .padding()
-                    .border(Color.gray)
-                    .clipShape(RoundedRectangle(cornerRadius: 1))
-                Button("Get New Weather", action: {
-                    viewModel.getWeather(latitude: -6.2146, longitude: 106.8451)
-                })
-                    .padding(10)
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-//                Text(String(cityModel.lon))
-//                Text(String(cityModel.lat))
-                Text(cityModel.name)
-                Text(cityModel.state)
-                Text(cityModel.country)
-                Button("Get City", action:{
-                    cityModel.getCoordinates(city: "Jakarta")
-                })
-                    .padding(10)
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                CityWeatherView()
+//                WeatherConditionView()
                 
 //                switch locationViewModel.authorizationStatus {
 //                case .notDetermined:

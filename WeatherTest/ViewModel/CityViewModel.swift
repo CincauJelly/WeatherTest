@@ -23,7 +23,8 @@ class CityViewModel: ObservableObject{
                     return
                 }
                 do {
-                    let model = try JSONDecoder().decode(CityModel.self, from: data)
+                    let decoder = JSONDecoder()
+                    let model = try decoder.decode(CityModel.self, from: data)
                     
                     DispatchQueue.main.async {
                         self.name = model.name
@@ -32,38 +33,11 @@ class CityViewModel: ObservableObject{
                         self.country = model.country
                         self.state = model.state
                     }
-                    print("data get")
+                    print("datas get")
                 } catch {
                     print("Failed to decode \(error)")
                 }
             }
             task.resume()
     }
-    
-    
-//    func fetchCity(){
-//            guard let url = URL(string: "https://api.openweathermap.org/geo/1.0/direct?q=london&limit=5&appid=fcd7991b587c84ace98da243899b7736") else {
-//                    return
-//                }
-//                let task = URLSession.shared.dataTask(with: url) {data, _, error in
-//                    guard let data = data, error == nil else {
-//                        return
-//                    }
-//                    do {
-//                        let model = try JSONDecoder().decode(CityModel.self, from: data)
-//
-//                        DispatchQueue.main.async {
-//                            self.name = model.name
-//                            self.lat = model.lat
-//                            self.lon = model.lon
-//                            self.country = model.country
-//                            self.state = model.state
-//                        }
-//                        print("data get")
-//                    } catch {
-//                        print("Failed to decode \(error)")
-//                    }
-//                }
-//                task.resume()
-//    }
 }

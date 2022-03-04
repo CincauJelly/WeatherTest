@@ -10,7 +10,6 @@ import SwiftUI
 
 struct CityModel: Codable{
     let name: String
-    let local_names: [String]
     let lat: Float
     let lon: Float
     let country: String
